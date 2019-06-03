@@ -9,9 +9,9 @@ This repo has materials adapted from a tutorial presented by the HBC training te
 
 **Instructor 1**: [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home)
 
-**Instructor 2**: Dr. Radhika Khetani
+**Instructor 2**: Dr. Radhika Khetani, [Harvard Chan Bioinformatics Core](http://bioinformatics.sph.harvard.edu/)
 
-**Contributors**: Dr. Mary Piper and Dr. Meeta Mistry
+**Contributors**: Dr. Mary Piper and Dr. Meeta Mistry, [Harvard Chan Bioinformatics Core](http://bioinformatics.sph.harvard.edu/)
 
 ## Schedule
 
