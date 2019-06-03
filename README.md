@@ -5,6 +5,14 @@ This repo has materials adapted from a tutorial presented by the HBC training te
 * GCC/BOSC tutorial html link - https://hbctraining.github.io/GCC-BOSC-2018/
 * GCC/BOSC tutorial github link - https://github.com/hbctraining/GCC-BOSC-2018 
 
+## Instructors and contributors
+
+**Instructor 1**: [Sarah Boswell](https://scholar.harvard.edu/saboswell/home)
+
+**Instructor 2**: Radhika Khetani
+
+**Contributors**: Mary Piper and Meeta Mistry
+
 ## Schedule
 
 | Time            |   Topic  | Instructor |
