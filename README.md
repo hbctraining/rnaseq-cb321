@@ -7,11 +7,11 @@ This repo has materials adapted from a tutorial presented by the HBC training te
 
 ## Instructors and contributors
 
-**Instructor 1**: [Sarah Boswell](https://scholar.harvard.edu/saboswell/home)
+**Instructor 1**: [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home)
 
-**Instructor 2**: Radhika Khetani
+**Instructor 2**: Dr. Radhika Khetani
 
-**Contributors**: Mary Piper and Meeta Mistry
+**Contributors**: Dr. Mary Piper and Dr. Meeta Mistry
 
 ## Schedule
 
