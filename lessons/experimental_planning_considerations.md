@@ -1,4 +1,4 @@
-# Experimental planning considerations
+# Experimental design considerations
 
 Understanding the steps in the experimental process of RNA extraction and preparation of RNA-Seq libraries is helpful for designing an RNA-Seq experiment, but there are special considerations that should be highlighted that can greatly affect the quality of a differential expression analysis. 
 
@@ -36,7 +36,7 @@ Replicates are almost always preferred to greater sequencing depth for bulk RNA-
 
 - **General gene-level differential expression:**
 
-  - ENCODE guidelines suggest 30 million SE reads per sample (stranded).
+  - [ENCODE guidelines](https://www.encodeproject.org/documents/cede0cbe-d324-4ce7-ace4-f0c3eddf5972/@@download/attachment/ENCODE%20Best%20Practices%20for%20RNA_v2.pdf) suggest 30 million SE reads per sample (stranded).
   
   - 15 million reads per sample is often sufficient, if there are a good number of replicates (>3). 
 
