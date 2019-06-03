@@ -19,7 +19,7 @@ This repo has materials adapted from a tutorial presented by the HBC training te
 |:--------:|:--------:|:--------:|
 |9:00 - 9:10| Introduction to module | Radhika & Sarah |
 |9:10 - 9:35| Sequencing by synthesis | Sarah |
-|9:35 - 10:00| Experimental design for RNA-seq | Radhika |
+|9:35 - 10:00| [Experimental design for RNA-seq](lessons/experimental_planning_considerations.md) | Radhika |
 |10:00 - 10:45| cDNA Library preparation | Sarah |
 |10:45 - 10:55| Break | |
 |10:55 - 11:15| Practical strategies for sequencing | Radhika & Sarah |
