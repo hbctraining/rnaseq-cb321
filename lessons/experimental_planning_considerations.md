@@ -38,31 +38,31 @@ Replicates are almost always preferred to greater sequencing depth for bulk RNA-
 
   - [ENCODE guidelines](https://www.encodeproject.org/documents/cede0cbe-d324-4ce7-ace4-f0c3eddf5972/@@download/attachment/ENCODE%20Best%20Practices%20for%20RNA_v2.pdf) suggest 30 million SE reads per sample (stranded).
   
-  - 15 million reads per sample is often sufficient, if there are a good number of replicates (>3). 
+  - 15 million reads per sample is often sufficient, if there are at least 4 replicates. 
 
-  - Spend money on more biological replicates, if possible.
+  - More replicates >> More sequencing depth
 
 - **Gene-level differential expression with detection of lowly-expressed genes:**
   
-  - Similarly benefits from replicates more than sequencing depth.
-
   - Sequence deeper with at least 30-60 million reads depending on level of expression (start with 30 million with a good number of replicates). 
   
-- **Isoform-level differential expression:**
+  - Similarly benefits from replicates more than sequencing depth.
 
-  - Of known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.
-
-  - OF novel isoforms should have more depth (> 60 million reads per sample).
-
-  - Choose biological replicates over paired/deeper sequencing.
-
-  - Perform careful QC of RNA quality. Be careful to use high quality preparation methods and restrict analysis to high quality RIN # samples.  
-  
-- **Other types of RNA analyses (intron retention, small RNA-Seq, etc.):** 
-  
-  - Different recommendations depending on the analysis.
-  
-  - Almost always more biological replicates are better!
+> *Additional applications:*
+>
+> - **Splice-isoform differential expression:**
+> 
+>   - For known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.
+> 
+>   - For novel isoforms should have more depth (> 60 million reads per sample).
+> 
+>   - Choose biological replicates over paired/deeper sequencing.
+>   
+> - **Other types of RNA analyses (intron retention, small RNA-Seq, etc.):** 
+>   
+>   - Different recommendations depending on the analysis.
+>   
+>   - Almost always more biological replicates are better!
   
 ## Confounding
   
@@ -82,7 +82,7 @@ For example, we know that sex has large effects on gene expression, and if all o
 
 ## Batch effects
 
-Batch effects are a significant issue for RNA-Seq analyses, since you can see significant differences in expression due solely to the batch effect.
+Batch effects are a significant issue for RNA-seq analyses, since you can see significant differences in expression due solely to batch.
 
 <img src="../img/batch_effect_pca.png" width="600">
 
@@ -96,7 +96,7 @@ Batch effects are a significant issue for RNA-Seq analyses, since you can see si
 
 - Did the same person perform the RNA isolation/library preparation for all samples?
 
-- Did you use the same reagents for all samples?
+- Did you use the same reagents/kits for all samples?
 
 - Did you perform the RNA isolation/library preparation in the same location?
 
@@ -104,7 +104,7 @@ If *any* of the answers is **‘No’**, then you have batches.
 
 ### Best practices regarding batches:
 
-- Design the experiment in a way to **avoid batches**, if possible.
+- Design the experiment from start to finish to **avoid batches**, if possible. If unsure of what can bring in a batch effect, talk with a biostats consultant before starting experiment.
 
 - If unable to avoid batches:
 
@@ -114,7 +114,7 @@ If *any* of the answers is **‘No’**, then you have batches.
     
     *Image credit: [Hicks SC, et al., bioRxiv (2015)](https://www.biorxiv.org/content/early/2015/08/25/025528)*
   
-  - **DO** split replicates of the different sample groups across batches. The more replicates the better (definitely more than 2).
+  - **DO** split replicates of the different sample groups across batches. The more replicates the better (definitely 3 or more).
   
     <img src="../img/batch_effect.png" width="300">
 
