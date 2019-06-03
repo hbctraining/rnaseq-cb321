@@ -7,7 +7,7 @@ This repo has materials adapted from a tutorial presented by the HBC training te
 
 ## Instructors and contributors
 
-**Instructor 1**: [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home), [Laboratory of Systems Pharmacology](http://hits.harvard.edu/the-program/laboratory-of-systems-pharmacology/about/)
+**Instructor 1**: [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home), [Laboratory of Systems Pharmacology](http://hits.harvard.edu/the-program/laboratory-of-systems-pharmacology/about/), [Single Cell Core](https://singlecellcore.hms.harvard.edu/)
 
 **Instructor 2**: Dr. Radhika Khetani, [Harvard Chan Bioinformatics Core](http://bioinformatics.sph.harvard.edu/)
 
