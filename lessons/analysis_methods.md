@@ -76,13 +76,14 @@ The **"Per base sequence quality"** plot is the most commonly used one and it pr
 
 <img src="../img/deseq_counts_overview.png" width="600">
 
-## Differential expression analysis
 
-**The differential expression analysis steps are shown in the flowchart below in green**. using your tool of interest.
+## Expression data :: Normalization and QC
+
+**The next few steps in the analysis are shown in the flowchart below in green**. using your tool of interest.
 
 <img src="../img/deseq_workflow_full.png" width="200">
 
-### Normalization
+### Normalization of count data
 
 The first step in the DE analysis workflow is count normalization, which is necessary to make accurate comparisons of gene expression between samples.
 
@@ -122,13 +123,14 @@ The main factors often considered during normalization are:
 >	
 > *NOTE:* [This video by StatQuest](http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/) shows in more detail why TPM should be used in place of RPKM/FPKM if needing to normalize for sequencing depth and gene length.
 
-## Quality Control on count data
 
-The next step in the differential expression workflow is QC, which includes sample-level and gene-level steps to perform QC checks on the count data to help us ensure that the samples/replicates look good. 
+### Quality Control
+
+The next step in the differential expression workflow is QC, which includes sample-level and gene-level steps to perform QC checks on the count data to help us ensure that the samples/replicates look good and to help identify problematic expression trends and outliers.
 
 <img src="../img/deseq_workflow_qc.png" width="200">
 
-### Sample-level QC
+#### Sample-level QC
 
 A useful initial step in an RNA-seq analysis is often to assess overall similarity between samples: 
 
@@ -140,24 +142,7 @@ Sample-level QC allows us to see how well our replicates cluster together, as we
 
 <img src="../img/sample_qc.png" width="700">
 
-#### [Principal Component Analysis (PCA)](https://hbctraining.github.io/DGE_workshop/lessons/principal_component_analysis.html)
-Principal Component Analysis (PCA) is a dimensionality reduction technique that finds the greatest amounts of variation in a dataset and assigns it to principal components. The principal component (PC) explaining the greatest amount of variation in the dataset is PC1, while the PC explaining the second greatest amount is PC2, and so on and so forth. For a more detailed explanation, please see additional materials [here](https://hbctraining.github.io/DGE_workshop/lessons/principal_component_analysis.html).
-
-Generally, we focus on PC1 and PC2 (which explain the largest amounts of variation in the data) and plot them against each other. In an ideal experiment, we would expect all replicates for each sample group to cluster together and the sample groups to cluster apart in the PCA plot as shown below.
-
-<img src="../img/wt_pca.png" width="700">
-
-#### Hierarchical Clustering Heatmap
-
-Similar to PCA, hierarchical clustering is another, complementary method for identifying strong patterns in a dataset and potential outliers. The heatmap displays **the correlation of gene expression for all pairwise combinations of samples** in the dataset. Since the majority of genes are not differentially expressed, samples generally have high correlations with each other (values higher than 0.80). Samples below 0.80 may indicate an outlier in your data and/or sample contamination.  
-
-The hierarchical tree can indicate which samples are more similar to each other based on the normalized gene expression values. The color blocks indicate substructure in the data, and you would expect to see your replicates cluster together as a block for each sample group. Additionally, we expect to see samples clustered similar to the groupings observed in a PCA plot. 
-
-In the plot below, we would be a bit concerned about 'Wt_3' and 'KO_3' samples not clustering with the other replicates. We would want to explore the PCA to see if we see the same clustering of samples.
-
-<img src="../img/heatmap_example.png" width="500">
-
-### Gene-level QC
+#### Gene-level QC
 
 In addition to examining how well the samples/replicates cluster together, there are a few more QC steps. Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed. This will increase the power to detect differentially expressed genes. The genes omitted fall into three categories:
 
@@ -168,5 +153,13 @@ In addition to examining how well the samples/replicates cluster together, there
 <img src="../img/gene_filtering.png" width="600">
 
 **DESeq2 will perform this filtering by default; however other DE tools, such as EdgeR will not.**  Filtering is a necessary step, even if you are using limma-voom and/or edgeR's quasi-likelihood methods. Be sure to follow pre-filtering steps when using these tools, as outlined in their user guides found on Bioconductor as they generally perform much better. 
+
+## Count modeling and statistical analysis
+
+### Negative binomial
+
+### Hypothesis testing
+
+### Multiple test correction
 
 ***
