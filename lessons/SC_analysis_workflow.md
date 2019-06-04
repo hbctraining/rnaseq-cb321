@@ -3,6 +3,8 @@ title: "Single-cell RNA-seq: Generation of count matrix"
 author: "Mary Piper, Lorena Pantano, Meeta Mistry, Radhika Khetani, Rory Kirchner"
 ---
 
+*NOTE: This lesson was adapted from [Dr. Mary Piper's presentation](https://github.com/marypiper/WIB_scRNA-seq#wib_scrna-seq) for the [Boston-area Women's Bioinformatics Meetup](https://www.meetup.com/boston-area-womens-bioinformatics/).*
+
 # Single-cell RNA-seq analysis workflow
 
 <img src="../img/sc_workflow.png" width="800">
@@ -57,6 +59,6 @@ After clustering, genes that are markers for different clusters can be used to h
 
 ***
 
-*This lesson was adapted from [Dr. Mary Piper's presentation](https://github.com/marypiper/WIB_scRNA-seq#wib_scrna-seq) for the [Boston-area Women's Bioinformatics Meetup](https://www.meetup.com/boston-area-womens-bioinformatics/).
+*This lesson was adapted from [Dr. Mary Piper's presentation](https://github.com/marypiper/WIB_scRNA-seq#wib_scrna-seq) for the [Boston-area Women's Bioinformatics Meetup](https://www.meetup.com/boston-area-womens-bioinformatics/).*
 
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
