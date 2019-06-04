@@ -28,6 +28,8 @@ The generation of the count matrix from the raw sequencing data follow the steps
 
 <img src="../img/sc_pre-QC_workflow.png" width="800">
 
+***
+
 Following the generation of count matrix, the remaining steps can be performed using [Seurat](https://satijalab.org/seurat/#about-seurat), the R toolkit for single cell genomics. A tutorial for the remaining steps can be [found here](https://satijalab.org/seurat/v3.0/pbmc3k_tutorial.html), and requires a good working knowledge of R.
 
 ## Filtering
