@@ -51,7 +51,7 @@ After removing the poor quality cells, the cells can now be clustered based on s
 
 To visualize the clusters, there are a few different options that can be helpful, including t-distributed stochastic neighbor embedding (t-SNE), Uniform Manifold Approximation and Projection (UMAP), and PCA. The goals of these methods is to have similar cells closer together in low-dimensional space.
 
-<img src="../img/tSNE.png" width="600">
+<img src="../img/tSNE.png" width="500">
 
 ## Marker identification
 
