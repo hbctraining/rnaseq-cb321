@@ -14,7 +14,7 @@ These lessons are adapted from [a tutorial](https://hbctraining.github.io/GCC-BO
 
 | Time            |   Topic  | Instructor |
 |:--------:|:--------:|:--------:|
-|9:00 - 9:10| Introduction to module | Radhika & Sarah |
+|9:00 - 9:10| [Introduction to module](lectures/Introduction.pdf) | Radhika & Sarah |
 |9:10 - 9:25| Sequencing by synthesis | Sarah |
 |9:25 - 9:50| [Experimental design for RNA-seq](lessons/experimental_planning_considerations.md) | Radhika |
 |9:50 - 10:35| RNA-seq library preparation | Sarah |
