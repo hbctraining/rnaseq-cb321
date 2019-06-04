@@ -53,7 +53,7 @@ Therefore, for the first nucleotide in the read (C), there is less than a 1 in 1
 
 ### Assessing quality with FastQC
 
-Now we understand what information is stored in a FASTQ file, let's talk about using that information to assess quality. 
+Now that we understand what information is stored in a FASTQ file, let's talk about using that information to assess quality. 
 
 This assessment of read quality is not performed manually; there are tools to help examine the quality metrics. [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is one of the most common tools for this step of the workflow. It provides a modular set of analyses, with clear visualizations, to provide a quick impression of whether the data has any problems of which one should be aware of before proceeding with any further analysis. 
 
@@ -68,7 +68,7 @@ A few examples of assessments performed by FastQC are:
 
 The **"Per base sequence quality"** plot is the most commonly used one and it provides the distribution of quality scores across all bases at each position in the reads.
 
-![FastQC_seq_qual](../img/FastQC_seq_qual.png)
+ <img src="../img/FastQC_seq_qual.png" width="400">
 
 ## Expression quantification
 
@@ -84,7 +84,7 @@ Common to all of these tools is that **base-to-base alignment of the reads to th
 
 Once expression is quantified and counts are generated, the next step is more QC! The next few steps in the analysis are shown in the flowchart below.
 
-<img src="../img/de_workflow_salmon_qc.png" width="300">
+<img src="../img/de_workflow_salmon_qc.png" width="400">
 
 ### Normalization of count data
 
@@ -159,10 +159,36 @@ In addition to examining how well the samples/replicates cluster together, there
 
 ## Count modeling and statistical analysis
 
-### Negative binomial
+The final step in the differential expression analysis workflow is fitting the counts to a model and performing the statistical test for differentially expressed genes. In this step we essentially want to determine whether the mean expression levels of different sample groups are significantly different.
 
-### Hypothesis testing
+<img src="../img/de_theory.png" width="600">
+
+*Image credit:  Paul  Pavlidis,  UBC*
+
+### Some highlights of RNA-seq count data
+
+* there are a low number of counts associated with a large proportion of genes
+* there is no upper limit for expression (large dynamic range)
+* the negative binomial model has been determined to be the best fit for the count distribution for RNA-seq data where there is a lot of variance between the replicates and mean < variance
+
+### Tools for statistical analysis
+
+There are a number of software packages that have been developed for differential expression analysis of RNA-seq data. A few tools are generally recommended as best practice, e.g. **[DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)** and **[EdgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html)**. Both these R packages use the negative binomial model, employ similar methods, and typically, yield similar results. They are pretty stringent, and have a good balance between sensitivity and specificity (reducing both false positives and false negatives).
+
+**[Limma-Voom](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)** is another set of tools often used together for DE analysis, but this method may be less sensitive for small sample sizes. This method is recommended when the number of biological replicates per group grows large (> 20). 
+
+*[Further reading about DGE tool comparisons](https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/)*.
 
 ### Multiple test correction
+
+The output of any of these analysis methods is a p-value as well as a value assigning statistical significance after multiple test correction, and the second value is what should be used when creating lists of genes that are differentially expressed. 
+
+Each p-value returned is the result of a single test (single gene). If we used the `p-value` directly with a significance cut-off of p < 0.05, that means there is a 5% chance it is a false positive and the more genes we test, the more we inflate the false positive rate. For example, if we test 20,000 genes for differential expression, at p < 0.05 we would expect to find 1,000 genes by chance. If we found 3000 genes to be differentially expressed total, roughly one third of our genes are false positives. We would not want to sift through our "significant" genes to identify which ones are true positives.
+
+A few common methods to correct for multiple testing are listed below:
+
+- **Bonferroni:** The adjusted p-value is calculated by: p-value * m (m = total number of tests). **This is a very conservative approach with a high probability of false negatives**, so is generally not recommended.
+- **FDR/Benjamini-Hochberg:** Benjamini and Hochberg (1995) defined the concept of FDR and created an algorithm to control the expected FDR below a specified level given a list of independent p-values. **An interpretation of the BH method for controlling the FDR is implemented in DESeq2 in which we rank the genes by p-value, then multiply each ranked p-value by m/rank**.
+- **Q-value / Storey method:** The minimum FDR that can be attained when calling that feature significant. For example, if gene X has a q-value of 0.013 it means that 1.3% of genes that show p-values at least as small as gene X are false positives
 
 ***
