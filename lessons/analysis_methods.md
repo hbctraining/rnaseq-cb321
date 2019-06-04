@@ -1,9 +1,12 @@
+# Analysis workflow
 
-<img src="../img/full_workflow_2019.png" width="600">
+The goal of RNA-seq is often to perform differential expression testing to determine which genes or transcripts are expressed at different levels between conditions. These findings can offer biological insight into the processes affected by the condition(s) of interest. Below is an overview of the analysis workflow that is followed for differential gene expression analysis with bulk RNA-seq data. 
+
+<img src="../img/full_workflow_2019.png" width="500">
 
 ## QC on sequencing data
 
-The first step in the RNA-Seq workflow is to take the FASTQ files received from the sequencing facility and assess the quality of the sequence reads. 
+The first step in the RNA-Seq workflow is to take the FASTQ files received from the sequencing facility and assess the quality of the reads. 
 
 ### Unmapped read data (FASTQ)
 
@@ -33,13 +36,11 @@ As mentioned previously, line 4 has characters encoding the quality of each nucl
     Quality score: 0........10........20........30........40                                
 ```
  
-Using the quality encoding character legend, the first nucelotide in the read (C) is called with a quality score of 31 and our Ns are called with a score of 2. **As you can tell by now, this is a bad read.** 
-
 Each quality score represents the probability that the corresponding nucleotide call is incorrect. This quality score is logarithmically based and is calculated as:
 
 	Q = -10 x log10(P), where P is the probability that a base call is erroneous
 
-These probabaility values are the results from the base calling algorithm and dependent on how much signal was captured for the base incorporation. The score values can be interpreted as follows:
+These probability values are assigned by the base calling algorithm. The score values can be interpreted as follows:
 
 |Phred Quality Score |Probability of incorrect base call |Base call accuracy|
 |:-------------------|:---------------------------------:|-----------------:|
@@ -48,21 +49,18 @@ These probabaility values are the results from the base calling algorithm and de
 |30	|1 in 1000|	99.9%|
 |40	|1 in 10,000|	99.99%|
 
-Therefore, for the first nucleotide in the read (C), there is less than a 1 in 1000 chance that the base was called incorrectly. Whereas, for the the end of the read there is greater than 50% probabaility that the base is called incorrectly.
+Therefore, for the first nucleotide in the read (C), there is less than a 1 in 1000 chance that the base was called incorrectly. Whereas, for the the end of the read there is greater than 50% probability that the base is called incorrectly.
 
 ### Assessing quality with FastQC
 
-Now we understand what information is stored in a FASTQ file, the next step is to examine quality metrics for our data.
+Now we understand what information is stored in a FASTQ file, let's talk about using that information to assess quality. 
 
-[FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) provides a simple way to do some quality control checks on raw sequence data coming from high throughput sequencing pipelines. It provides a modular set of analyses which you can use to give a quick impression of whether your data has any problems of which you should be aware before doing any further analysis.
+This assessment of read quality is not performed manually; there are tools to help examine the quality metrics. [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is one of the most common tools for this step of the workflow. It provides a modular set of analyses, with clear visualizations, to provide a quick impression of whether the data has any problems of which one should be aware of before proceeding with any further analysis. 
 
-The main functions of FastQC are:
-
-* Import of data from BAM, SAM or FastQ files (any variant)
-* Providing a quick overview to tell you in which areas there may be problems
-* Summary graphs and tables to quickly assess your data
-* Export of results to an HTML based permanent report
-* Offline operation to allow automated generation of reports without running the interactive application
+A few examples of assessments performed by FastQC are:
+* aggregate read quality information and plot box plots
+* levels of overrepresentation
+* GC%
 
 > FastQC has a really well documented [manual page](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) with [more details](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/) about all the plots in the report. We recommend looking at [this post](http://bioinfo-core.org/index.php/9th_Discussion-28_October_2010) for more information on what bad plots look like and what they mean for your data.
 >
@@ -74,14 +72,19 @@ The **"Per base sequence quality"** plot is the most commonly used one and it pr
 
 ## Expression quantification
 
-<img src="../img/deseq_counts_overview.png" width="600">
+Once it has been determined that the read quality is good, the next step is to quantify gene expression. 
 
+<img src="../img/rnaseq_salmon_workflow.png" width="400">
+
+Tools that have been found to be most accurate for this step in the analysis are referred to as lightweight alignment tools, which include [Kallisto](https://pachterlab.github.io/kallisto/about), [Sailfish](http://www.nature.com/nbt/journal/v32/n5/full/nbt.2862.html) and [Salmon](https://combine-lab.github.io/salmon/); each working slightly different from one another. Salmon and Kallisto are equally good choices with similar performance metrics for speed and accuracy.
+
+Common to all of these tools is that **base-to-base alignment of the reads to the reference genome is avoided**, which is the time- and memory-consuming function of splice-aware alignment tools such as STAR and HISAT2. The lightweight alignment tools **provide quantification estimates much faster** (typically more than 20 times faster) with **improvements in accuracy** [[1](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0734-x)]. These transcript expression estimates, often referred to as 'pseudocounts' or 'abundance estimates', can be aggregated to the gene level for use with differential gene expression tools like [DESeq2](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html) or the estimates can be used directly for splice-isoform differential expression using a tool like [Sleuth](http://www.biorxiv.org/content/biorxiv/early/2016/06/10/058164.full.pdf). 
 
 ## Expression data :: Normalization and QC
 
-**The next few steps in the analysis are shown in the flowchart below in green**. using your tool of interest.
+Once expression is quantified and counts are generated, the next step is more QC! The next few steps in the analysis are shown in the flowchart below.
 
-<img src="../img/deseq_workflow_full.png" width="200">
+<img src="../img/de_workflow_salmon_qc.png" width="300">
 
 ### Normalization of count data
 
@@ -107,7 +110,7 @@ The main factors often considered during normalization are:
 	
     <img src="../img/normalization_methods_composition.png" width="400">
     
-***While normalization is essential for differential expression analyses, it is also necessary for exploratory data analysis, visualization of data, and whenever you are exploring or comparing counts between or within samples.***
+***While normalization is essential for differential expression analyses, it is also necessary for QC, exploratory data analysis, visualization of data, and whenever you are exploring or comparing counts between or within samples.***
  
 > **Common normalization methods**
 > 
@@ -126,9 +129,7 @@ The main factors often considered during normalization are:
 
 ### Quality Control
 
-The next step in the differential expression workflow is QC, which includes sample-level and gene-level steps to perform QC checks on the count data to help us ensure that the samples/replicates look good and to help identify problematic expression trends and outliers.
-
-<img src="../img/deseq_workflow_qc.png" width="200">
+The next step in the differential expression workflow is QC, which includes sample-level and gene-level steps to perform QC checks on the count data to help us ensure that the samples/replicates look good and to help identify problematic expression trends and outliers. Normalized counts are utilized for this step.
 
 #### Sample-level QC
 
@@ -140,7 +141,9 @@ A useful initial step in an RNA-seq analysis is often to assess overall similari
 
 Sample-level QC allows us to see how well our replicates cluster together, as well as, observe whether our experimental condition represents the major source of variation in the data. Performing sample-level QC can also identify any sample outliers, which may need to be explored to determine whether they need to be removed prior to DE analysis. 
 
-<img src="../img/sample_qc.png" width="700">
+The 2 main methods utilized for this type of QC are Principal Component Analysis (PCA) and Hierarchical Clustering.
+
+<img src="../img/sample_qc.png" width="900">
 
 #### Gene-level QC
 
@@ -152,7 +155,7 @@ In addition to examining how well the samples/replicates cluster together, there
 
 <img src="../img/gene_filtering.png" width="600">
 
-**DESeq2 will perform this filtering by default; however other DE tools, such as EdgeR will not.**  Filtering is a necessary step, even if you are using limma-voom and/or edgeR's quasi-likelihood methods. Be sure to follow pre-filtering steps when using these tools, as outlined in their user guides found on Bioconductor as they generally perform much better. 
+**Some statistical tools, e.g. DESeq2, used for identifying differentially expressed genes will perform this filtering by default; however other tools, e.g. EdgeR, will not.**  
 
 ## Count modeling and statistical analysis
 
