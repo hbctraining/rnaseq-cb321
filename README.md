@@ -20,5 +20,6 @@ These lessons are adapted from [a tutorial](https://hbctraining.github.io/GCC-BO
 |9:50 - 10:35| RNA-seq library preparation | Sarah |
 |10:35 - 10:45| Break | |
 |10:45 - 11:05| Practical strategies for sequencing | Radhika & Sarah |
-|11:05 - 11:50| Analysis workflow and tools | Radhika |
+|11:05 - 11:40| [Analysis workflow and tools (bulk RNA-seq)](lessons/analysis_methods.md) | Radhika |
+|11:40 - 11:50| [Analysis workflow and tools (single-cell RNA-seq)](lessons/SC_analysis_workflow.md) | Radhika |
 |11:50 - 12:00| Wrap-up | Sarah & Radhika |
