@@ -68,7 +68,7 @@ A few examples of assessments performed by FastQC are:
 
 The **"Per base sequence quality"** plot is the most commonly used one and it provides the distribution of quality scores across all bases at each position in the reads.
 
-![FastQC_seq_qual](../img/FastQC_seq_qual.png)
+ <img src="../img/FastQC_seq_qual.png" width="400">
 
 ## Expression quantification
 
@@ -84,7 +84,7 @@ Common to all of these tools is that **base-to-base alignment of the reads to th
 
 Once expression is quantified and counts are generated, the next step is more QC! The next few steps in the analysis are shown in the flowchart below.
 
-![qc_norm](../img/de_workflow_salmon_qc.png)
+<img src="../img/de_workflow_salmon_qc.png" width="400">
 
 ### Normalization of count data
 
