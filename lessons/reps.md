@@ -20,19 +20,17 @@ Replicates are almost always preferred to greater sequencing depth for bulk RNA-
   
   - Similarly benefits from replicates more than sequencing depth.
 
-> *Additional applications:*
->
-> - **Splice-isoform differential expression:**
-> 
->   - For known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.
-> 
->   - For novel isoforms should have more depth (> 60 million reads per sample).
-> 
->   - Choose biological replicates over paired/deeper sequencing.
->   
-> - **Other types of RNA analyses (intron retention, small RNA-Seq, etc.):** 
->   
->   - Different recommendations depending on the analysis.
->   
->   - Almost always more biological replicates are better!
+- **Splice-isoform differential expression:**
+
+  - For known isoforms, suggested to have a depth of at least 30 million reads per sample and paired-end reads.
+
+  - For novel isoforms should have more depth (> 60 million reads per sample).
+
+  - Choose biological replicates over paired/deeper sequencing.
+  
+- **Other types of RNA analyses (intron retention, small RNA-Seq, etc.):** 
+  
+  - Different recommendations depending on the analysis.
+  
+  - Almost always more biological replicates are better!
   
