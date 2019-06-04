@@ -53,7 +53,7 @@ Therefore, for the first nucleotide in the read (C), there is less than a 1 in 1
 
 ### Assessing quality with FastQC
 
-Now we understand what information is stored in a FASTQ file, let's talk about using that information to assess quality. 
+Now that we understand what information is stored in a FASTQ file, let's talk about using that information to assess quality. 
 
 This assessment of read quality is not performed manually; there are tools to help examine the quality metrics. [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is one of the most common tools for this step of the workflow. It provides a modular set of analyses, with clear visualizations, to provide a quick impression of whether the data has any problems of which one should be aware of before proceeding with any further analysis. 
 
@@ -84,7 +84,7 @@ Common to all of these tools is that **base-to-base alignment of the reads to th
 
 Once expression is quantified and counts are generated, the next step is more QC! The next few steps in the analysis are shown in the flowchart below.
 
-<img src="../img/de_workflow_salmon_qc.png" width="300">
+![qc_norm](../img/de_workflow_salmon_qc.png)
 
 ### Normalization of count data
 
