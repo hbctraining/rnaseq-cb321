@@ -165,19 +165,21 @@ The final step in the differential expression analysis workflow is fitting the c
 
 *Image credit:  Paul  Pavlidis,  UBC*
 
-**Some highlights of RNA-seq count data**
+### Some highlights of RNA-seq count data
 
 * there are a low number of counts associated with a large proportion of genes
 * there is no upper limit for expression (large dynamic range)
 * the negative binomial model has been determined to be the best fit for the count distribution for RNA-seq data where there is a lot of variance between the replicates and mean < variance
 
-**Tools for statistical analysis**
+### Tools for statistical analysis
 
 There are a number of software packages that have been developed for differential expression analysis of RNA-seq data. A few tools are generally recommended as best practice, e.g. **[DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)** and **[EdgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html)**. Both these R packages use the negative binomial model, employ similar methods, and typically, yield similar results. They are pretty stringent, and have a good balance between sensitivity and specificity (reducing both false positives and false negatives).
 
 **[Limma-Voom](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)** is another set of tools often used together for DE analysis, but this method may be less sensitive for small sample sizes. This method is recommended when the number of biological replicates per group grows large (> 20). 
 
-**Multiple test correction**
+*[Further reading about DGE tool comparisons](https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/)*.
+
+### Multiple test correction
 
 The output of any of these analysis methods is a p-value as well as a value assigning statistical significance after multiple test correction, and the second value is what should be used when creating lists of genes that are differentially expressed. 
 
