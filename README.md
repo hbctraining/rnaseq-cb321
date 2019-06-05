@@ -6,7 +6,7 @@ These lessons are adapted from [a tutorial](https://hbctraining.github.io/GCC-BO
 
 **Instructor 1**: [Dr. Sarah Boswell](https://scholar.harvard.edu/saboswell/home), [Laboratory of Systems Pharmacology](http://hits.harvard.edu/the-program/laboratory-of-systems-pharmacology/about/), [Single Cell Core](https://singlecellcore.hms.harvard.edu/)
 
-**Instructor 2**: Dr. Radhika Khetani, [Harvard Chan Bioinformatics Core](http://bioinformatics.sph.harvard.edu/)
+**Instructor 2**: Dr. Radhika Khetani, Training Director at the [Harvard Chan Bioinformatics Core](http://bioinformatics.sph.harvard.edu/)
 
 **Contributors**: Dr. Mary Piper and Dr. Meeta Mistry, [Harvard Chan Bioinformatics Core](http://bioinformatics.sph.harvard.edu/)
 
