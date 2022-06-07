@@ -2,6 +2,8 @@
 
 The goal of RNA-seq is often to perform differential expression testing to determine which genes or transcripts are expressed at different levels between conditions. These findings can offer biological insight into the processes affected by the condition(s) of interest. Below is an overview of the analysis workflow that is followed for differential gene expression analysis with bulk RNA-seq data. 
 
+UPDATE WORKFLOW
+
 <img src="../img/full_workflow_2019.png" width="500">
 
 ## QC on sequencing data
