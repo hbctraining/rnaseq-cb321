@@ -141,7 +141,7 @@ A useful initial step in an RNA-seq analysis is often to assess overall similari
 
 Sample-level QC allows us to see how well our replicates cluster together, as well as, observe whether our experimental condition represents the major source of variation in the data. Performing sample-level QC can also identify any sample outliers, which may need to be explored to determine whether they need to be removed prior to DE analysis. 
 
-The 2 main methods utilized for this type of QC are Principal Component Analysis (PCA) and Hierarchical Clustering.
+The 2 main methods utilized for this type of QC are Principal Component Analysis (PCA) and Hierarchical Clustering (and correlation between samples).
 
 <img src="../img/sample_qc.png" width="900">
 
@@ -167,7 +167,7 @@ The final step in the differential expression analysis workflow is fitting the c
 
 ### Some highlights of RNA-seq count data
 
-* there are a low number of counts associated with a large proportion of genes
+* a large proportion of the genes have low values associated with them
 * there is no upper limit for expression (large dynamic range)
 * the negative binomial model has been determined to be the best fit for the count distribution for RNA-seq data where there is a lot of variance between the replicates and mean < variance
 
@@ -178,6 +178,8 @@ There are a number of software packages that have been developed for differentia
 **[Limma-Voom](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)** is another set of tools often used together for DE analysis, but this method may be less sensitive for small sample sizes. This method is recommended when the number of biological replicates per group grows large (> 20). 
 
 *[Further reading about DGE tool comparisons](https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/)*.
+
+Note, these tools assime that majority of the genes are not different between the sample groups.
 
 ### Multiple test correction
 
