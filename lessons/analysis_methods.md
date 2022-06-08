@@ -179,7 +179,7 @@ There are a number of software packages that have been developed for differentia
 
 *[Further reading about DGE tool comparisons](https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/)*.
 
-Note, these tools assime that majority of the genes are not different between the sample groups.
+Note, these tools make the assumption that majority of the genes are not different between the sample groups.
 
 ### Multiple test correction
 
