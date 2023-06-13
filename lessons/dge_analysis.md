@@ -16,19 +16,25 @@ The main factors often considered during normalization are:
  
  - **Sequencing depth:** Accounting for sequencing depth is necessary for comparison of gene expression between samples. In the example below, each gene appears to have doubled in expression in *Sample A* relative to *Sample B*, however this is a consequence of *Sample A* having double the sequencing depth. 
 
+    <p align="center">
     <img src="../img/normalization_methods_depth.png" width="400">
+    </p>
   
 	>***NOTE:** In the figure above, each pink and green rectangle represents a read aligned to a gene. Reads connected by dashed lines connect a read spanning an intron.*
  
  - **Gene length:** Accounting for gene length is necessary for comparing expression between different genes within the same sample. In the example, *Gene X* and *Gene Y* have similar levels of expression, but the number of reads mapped to *Gene X* would be many more than the number mapped to *Gene Y* because *Gene X* is longer.
  
+    <p align="center">
     <img src="../img/normalization_methods_length.png" width="200">
+    </p>
  
  - **RNA composition:** A few highly differentially expressed genes between samples, differences in the number of genes expressed between samples, or presence of contamination can skew some types of normalization methods. Accounting for RNA composition is recommended for accurate comparison of expression between samples, and is particularly important when performing differential expression analyses [[1](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-10-r106)]. 
  
 	In the example, if we were to divide each sample by the total number of counts to normalize, the counts would be greatly skewed by the DE gene, which takes up most of the counts for *Sample A*, but not *Sample B*. Most other genes for *Sample A* would be divided by the larger number of total counts and appear to be less expressed than those same genes in *Sample B*.  
 	
+    <p align="center">
     <img src="../img/normalization_methods_composition.png" width="400">
+    </p>
     
 ***While normalization is essential for differential expression analyses, it is also necessary for QC, exploratory data analysis, visualization of data, and whenever you are exploring or comparing counts between or within samples.***
  
@@ -63,8 +69,10 @@ Sample-level QC allows us to see how well our replicates cluster together, as we
 
 The 2 main methods utilized for this type of QC are Principal Component Analysis (PCA) and Hierarchical Clustering (and correlation between samples).
 
+<p align="center">
 <img src="../img/sample_qc.png" width="900">
-
+</p>
+	
 ### Gene-level QC
 
 In addition to examining how well the samples/replicates cluster together, there are a few more QC steps. Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed. This will increase the power to detect differentially expressed genes. The genes omitted fall into three categories:
@@ -73,7 +81,9 @@ In addition to examining how well the samples/replicates cluster together, there
 - Genes with an extreme count outlier
 - Genes with a low mean normalized counts
 
+<p align="center">
 <img src="../img/gene_filtering.png" width="600">
+</p>
 
 **Some statistical tools, e.g. DESeq2, used for identifying differentially expressed genes will perform this filtering by default; however other tools, e.g. EdgeR, will not.**  
 
@@ -81,7 +91,9 @@ In addition to examining how well the samples/replicates cluster together, there
 
 The final step in the differential expression analysis workflow is fitting the counts to a model and performing the statistical test for differentially expressed genes. In this step we essentially want to determine whether the mean expression levels of different sample groups are significantly different.
 
+<p align="center">
 <img src="../img/de_theory.png" width="600">
+</p>
 
 *Image credit:  Paul  Pavlidis,  UBC*
 
