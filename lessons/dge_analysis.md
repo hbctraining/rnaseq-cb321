@@ -2,14 +2,13 @@
 
 The goal of RNA-seq is often to perform differential expression testing to determine which genes or transcripts are expressed at different levels between conditions. These findings can offer biological insight into the processes affected by the condition(s) of interest. Below is an overview of the analysis workflow that is followed for differential gene expression analysis with bulk RNA-seq data. 
 
-<img src="../img/full_workflow_2019.png" width="500">
-
+<p align="center">
+<img src="https://github.com/hbctraining/DGE_workshop_salmon_online/blob/master/img/de_workflow_salmon.png" width="400">
+</p>
 
 ## Expression data :: Normalization and QC
 
-Once expression is quantified and counts are generated, the next step is more QC! The next few steps in the analysis are shown in the flowchart below.
-
-<img src="../img/de_workflow_salmon_qc.png" width="400">
+Once expression is quantified and counts are generated, the next step is more QC!
 
 ### Normalization of count data
 
