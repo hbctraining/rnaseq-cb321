@@ -6,11 +6,7 @@ The goal of RNA-seq is often to perform differential expression testing to deter
 <img src="https://github.com/hbctraining/DGE_workshop_salmon_online/blob/master/img/de_workflow_salmon.png" width="400">
 </p>
 
-## Expression data :: Normalization and QC
-
-Once expression is quantified and counts are generated, the next step is more QC!
-
-### Normalization of count data
+## Normalization of count data
 
 The first step in the DE analysis workflow is count normalization, which is necessary to make accurate comparisons of gene expression between samples.
 
@@ -51,11 +47,11 @@ The main factors often considered during normalization are:
 > *NOTE:* [This video by StatQuest](http://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/) shows in more detail why TPM should be used in place of RPKM/FPKM if needing to normalize for sequencing depth and gene length.
 
 
-### Quality Control
+## Quality Control
 
 The next step in the differential expression workflow is QC, which includes sample-level and gene-level steps to perform QC checks on the count data to help us ensure that the samples/replicates look good and to help identify problematic expression trends and outliers. Normalized counts are utilized for this step.
 
-#### Sample-level QC
+### Sample-level QC
 
 A useful initial step in an RNA-seq analysis is often to assess overall similarity between samples: 
 
@@ -69,7 +65,7 @@ The 2 main methods utilized for this type of QC are Principal Component Analysis
 
 <img src="../img/sample_qc.png" width="900">
 
-#### Gene-level QC
+### Gene-level QC
 
 In addition to examining how well the samples/replicates cluster together, there are a few more QC steps. Prior to differential expression analysis it is beneficial to omit genes that have little or no chance of being detected as differentially expressed. This will increase the power to detect differentially expressed genes. The genes omitted fall into three categories:
 
