@@ -67,7 +67,7 @@ A useful initial step in an RNA-seq analysis is often to assess overall similari
 
 Sample-level QC allows us to see how well our replicates cluster together, as well as, observe whether our experimental condition represents the major source of variation in the data. Performing sample-level QC can also identify any sample outliers, which may need to be explored to determine whether they need to be removed prior to DE analysis. 
 
-The 2 main methods utilized for this type of QC are Principal Component Analysis (PCA) and Hierarchical Clustering (and correlation between samples).
+The 2 main methods utilized for this type of QC are [Principal Component Analysis (PCA)](https://hbctraining.github.io/scRNA-seq_online/lessons/05_theory_of_PCA.html) and Hierarchical Clustering (and correlation between samples).
 
 <p align="center">
 <img src="../img/sample_qc.png" width="900">
